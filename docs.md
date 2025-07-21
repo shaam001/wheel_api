@@ -8,6 +8,10 @@
 # Download or clone the github repository
 - https://github.com/shaam001/wheel_api
 
+# implemented APIs
+- Wheel Specifications API (GET and POST)
+- Bogie Checksheet API
+
 # Running the project without Docker
 - Running the project without Docker may lead to issues if PostgreSQL is not properly configured on the system.
 ## If you still prefer to run it without Docker:

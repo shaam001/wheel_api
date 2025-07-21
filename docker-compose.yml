@@ -3,7 +3,6 @@ version: '1.0.0'
 services:
   web:
     build: .
-    # command: python manage.py makemigrations && python manage.py migrate && python manage.py runserver
     image: wheel_api
     container_name: wheel_api
     ports:

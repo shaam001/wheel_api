@@ -2,8 +2,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import WheelSpecificationSerializer
-from .models import WheelSpecification
+from wheels.serializers import WheelSpecificationSerializer, BogieChecksheetSerializer
+from wheels.models import WheelSpecification
 from django.utils.dateparse import parse_date
 
 class WheelSpecificationView(APIView):
@@ -81,5 +81,20 @@ class WheelSpecificationView(APIView):
     
 
 
-# class WheelSpecificationFilteredList(APIView):
-    
+
+class BogieChecksheetView(APIView):
+    def post(self, request):
+        serializer = BogieChecksheetSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({
+                "success": True,
+                "message": "Bogie checksheet submitted successfully.",
+                "data": {
+                    "formNumber": serializer.data['form_number'],
+                    "inspectionBy": serializer.data['inspection_by'],
+                    "inspectionDate": serializer.data['inspection_date'],
+                    "status": "Saved"
+                }
+            }, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

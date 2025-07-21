@@ -143,11 +143,6 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = BASE_DIR.parent / 'local-cdn' / 'static'
 
-# MEDIA_URL = 'media/'
-# MEDIA_ROOT = BASE_DIR.parent / 'local-cdn' / 'media'
-
-# STATIC_ROOT = BASE_DIR.parent / 'local-cdn' / 'static'
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
