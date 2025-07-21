@@ -42,5 +42,6 @@
 
 # Test the api using postman
 - collection link: 
+- https://www.postman.com/spaceflight-geologist-75054432/wheel-specification/collection/dbd4pfa/wheel-specification
 - Ensure local server is running at http://localhost:8000.
 - Run the API requests from the collection.
