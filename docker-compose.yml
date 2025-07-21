@@ -1,0 +1,32 @@
+version: '1.0.0'
+
+services:
+  web:
+    build: .
+    # command: python manage.py makemigrations && python manage.py migrate && python manage.py runserver
+    image: wheel_api
+    container_name: wheel_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    env_file:
+      - .env
+
+  db:
+    image: postgres:17
+    container_name: wheel_db
+    environment:
+      POSTGRES_USER: wheel_user
+      POSTGRES_PASSWORD: wheel_pass
+      POSTGRES_DB: wheel_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - wheel_db:/var/lib/postgresql/data
+    
+  
+volumes:
+  wheel_db:
